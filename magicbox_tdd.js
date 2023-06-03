@@ -1,69 +1,36 @@
-// added test to handle magic box checking of row and column sums
-// changed the statement method so that it now returns the whole magic box 
-
-  
+// building a magic box
 
 (function() {
     "use strict";
-
-        
-
     var magic_box_size=3;
-
     var last = magic_box_size*magic_box_size;
-
     var magicbox=[];
-    function statement (magic_box_size, last)
 
+    function statement (magic_box_size, last)
     {    
 
- 
-
         if (check_odd_number(magic_box_size)==true)
-
         {
-
             console.log("Input value is a valid ODD number ... PROCEEDING");
 
             for (var m=0;m<magic_box_size;m++)
-
                 magicbox[m]=[];
-
- 
-
-            var i = 0;
-
-            var j = Math.floor(magic_box_size/2);
-
- 
+                var i = 0;
+                var j = Math.floor(magic_box_size/2);
 
             for (var counter=1; counter<=last; counter++)
-
             {
-
-                       
-
                 // case 1
-
                 i = case_1(magic_box_size,i);
 
- 
-                  // case 2
-
+                // case 2
                 if(i>=magic_box_size) 
-
                     {
-
                         i=i-magic_box_size;
-
                         console.log("I am in case 2");
-
                     }
 
-                
-
                 // case 3
-
                 if(j<0)  
 
                 
