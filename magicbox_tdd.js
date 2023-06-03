@@ -412,13 +412,13 @@
 
         {
 
-            console.log("test has passed",result, expected);
+            console.log("test has passed -> result =",result, " expected value = ", expected);
 
         }
 
         else {
 
-            console.log("test has failed", result, expected);
+            console.log("test has failed -> result =",result, " expected value = ", expected);
 
             console.log("expected was: ",expected);
 
