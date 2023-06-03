@@ -447,3 +447,11 @@
      teststatement_for_5by5();
 
      teststatement_for_rowsum_3by3();
+
+     test_case_1();
+
+     test_case_4();
+
+          
+
+}());
