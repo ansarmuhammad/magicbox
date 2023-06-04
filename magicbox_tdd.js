@@ -1,5 +1,10 @@
-// building a magic box
+// building a magic box https://www.hackerrank.com/challenges/magic-square-forming/problem
 // this is old code, we should change var to let???
+// todo: we can add a unit test to multiple the middle value 1,1 with bottom middle value 2,1 
+//       that should be equal to the sum of all values
+//       for example in a 3 by 3 we have 5 * 9 = 45
+//       which is also the total of all cells in a 3 by 3
+//       applies to all cases for larger odd number boxes
 
 (function() {
     "use strict";
@@ -113,7 +118,7 @@
     } // end of function test_case_4
 
     function test_statement_for_rowsum_3by3(){
-        var expected=45; 
+        var expected=45; // if you all all the cell values of a 3 by 3, the number will be 45
         var magic_box_size_for_test= 3;
         var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
         var magicBoxTest = statement(magic_box_size_for_test,total_cells_for_test);
@@ -130,7 +135,7 @@
     } //teststatement_for_rowsum_3by3()
 
     function test_statement_for_3by3(){
-        var expected=8; 
+        var expected=8; // since the first cell of a 3 by 3 (row =0,column=0) will have the value 8 if filled correctly
         var magic_box_size_for_test= 3;
         var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
         var magicBoxTest = statement(magic_box_size_for_test,total_cells_for_test);
@@ -141,9 +146,9 @@
         var expected=[];
         expected [0]  = 17; // row 0, column 1 
         expected [1]  = 24; // row 0, column 2 
-        expected [2]  = 1;  // row 0, column 2
-        expected [3]  = 8;  // row 0, column 2
-        expected [4]  = 15; // row 0, column 2
+        expected [2]  = 1;  // row 0, column 3
+        expected [3]  = 8;  // row 0, column 4
+        expected [4]  = 15; // row 0, column 5
 
         var magic_box_size_for_test= 5;
         var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
