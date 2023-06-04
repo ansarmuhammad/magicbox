@@ -112,7 +112,7 @@
         myAssert(expected,result);
     } // end of function test_case_4
 
-    function teststatement_for_rowsum_3by3(){
+    function test_statement_for_rowsum_3by3(){
         var expected=45; 
         var magic_box_size_for_test= 3;
         var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
@@ -129,7 +129,7 @@
         myAssert(expected,result);
     } //teststatement_for_rowsum_3by3()
 
-    function teststatement_for_3by3(){
+    function test_statement_for_3by3(){
         var expected=8; 
         var magic_box_size_for_test= 3;
         var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
@@ -137,13 +137,13 @@
         myAssert(expected,magicBoxTest[0][0]);
     }
 
-    function teststatement_for_5by5(){
+    function test_statement_for_5by5(){
         var expected=[];
-        expected [0]  = 17;
-        expected [1]  = 24;
-        expected [2]  = 1;
-        expected [3]  = 8;
-        expected [4]  = 15;
+        expected [0]  = 17; // row 0, column 1 
+        expected [1]  = 24; // row 0, column 2 
+        expected [2]  = 1;  // row 0, column 2
+        expected [3]  = 8;  // row 0, column 2
+        expected [4]  = 15; // row 0, column 2
 
         var magic_box_size_for_test= 5;
         var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
@@ -151,56 +151,26 @@
         myAssert(expected[0],result[0][0]);
     }
 
- 
-
     function myAssert(expected, result){
-
- 
-
         if (expected== result)
-
         {
-
             console.log("test has passed -> result =",result, " expected value = ", expected);
-
         }
-
         else {
-
             console.log("test has failed -> result =",result, " expected value = ", expected);
-
             console.log("expected was: ",expected);
-
             console.log("result was: ",result);
-
         }
-
- 
-
     } // end of myAssert
 
  // start of actual code execution
-
- 
-
     if (statement(magic_box_size,last)!=null)
-
-         printstatement();
-
-     
+        printstatement();
 
      console.log(" =================== Running Tests ====================");
-
-     teststatement_for_3by3();
-
-     teststatement_for_5by5();
-
-     teststatement_for_rowsum_3by3();
-
+     test_statement_for_3by3();
+     test_statement_for_5by5();
+     test_statement_for_rowsum_3by3();
      test_case_1();
-
      test_case_4();
-
-          
-
 }());
