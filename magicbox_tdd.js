@@ -1,10 +1,7 @@
 // building a magic box https://www.hackerrank.com/challenges/magic-square-forming/problem
 // this is old code, we should change let to let???
-// todo: we can add a unit test to multiple the middle value 1,1 with bottom middle value 2,1 
-//       that should be equal to the sum of all values
-//       for example in a 3 by 3 we have 5 * 9 = 45
-//       which is also the total of all cells in a 3 by 3
-//       applies to all cases for larger odd number boxes
+
+// TODO: test_middle_value_into_bottom_value_3by3()
 
 (function() {
     "use strict";
@@ -12,6 +9,7 @@
     let last = magic_box_size*magic_box_size;
     let magicbox=[];
 
+    //TODO: We need to find a better name like process_magicbox() instead of statement
     function statement (magic_box_size, last)
     {    
 
@@ -168,6 +166,33 @@
         }
     } // end of myAssert
 
+    function test_middle_value_into_bottom_value_3by3(){
+        //       We can add a unit test to multiply the middle value 1,1 with bottom middle value 2,1 
+        //       that should be equal to the sum of all values
+        //       for example in a 3 by 3 we have 5 * 9 = 45
+        //       which is also the total of all cells in a 3 by 3
+        //       applies to all cases for larger odd number boxes
+
+        let expected=45; // if you add all the cell values of a 3 by 3, the number will be 45
+        let magic_box_size_for_test= 3;
+        let total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
+        let magicBox = statement(magic_box_size_for_test,total_cells_for_test);
+        let result = parseInt(magicBox[1,1]) * parseInt(magicBox[2,1]);
+
+        console.log("1,1 ", parseInt(magicBox[1,1]), " 2,1 ", parseInt(magicBox[2,1]));
+        /*
+        for (let row = 0; row <= 2; row++){
+            for (let col = 0; col <= 2; col++){
+                let temp = 0;
+                temp = parseInt(magicBoxTest[row][col]);
+                result = result + parseInt(temp);
+            }
+        }  // for outerloop
+        */
+        myAssert(expected,result);
+    } //teststatement_for_rowsum_3by3()
+
+
  // start of actual code execution
     if (statement(magic_box_size,last)!=null)
         printstatement();
@@ -178,4 +203,5 @@
      test_statement_for_rowsum_3by3();
      test_case_1();
      test_case_4();
+     test_middle_value_into_bottom_value_3by3()
 }());
