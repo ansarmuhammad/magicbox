@@ -1,5 +1,5 @@
 // building a magic box https://www.hackerrank.com/challenges/magic-square-forming/problem
-// this is old code, we should change var to let???
+// this is old code, we should change let to let???
 // todo: we can add a unit test to multiple the middle value 1,1 with bottom middle value 2,1 
 //       that should be equal to the sum of all values
 //       for example in a 3 by 3 we have 5 * 9 = 45
@@ -8,9 +8,9 @@
 
 (function() {
     "use strict";
-    var magic_box_size=3;
-    var last = magic_box_size*magic_box_size;
-    var magicbox=[];
+    let magic_box_size=3;
+    let last = magic_box_size*magic_box_size;
+    let magicbox=[];
 
     function statement (magic_box_size, last)
     {    
@@ -19,12 +19,12 @@
         {
             console.log("Input value is a valid ODD number ... PROCEEDING");
 
-            for (var m=0;m<magic_box_size;m++)
+            for (let m=0;m<magic_box_size;m++)
                 magicbox[m]=[];
-                var i = 0;
-                var j = Math.floor(magic_box_size/2);
+                let i = 0;
+                let j = Math.floor(magic_box_size/2);
 
-            for (var counter=1; counter<=last; counter++)
+            for (let counter=1; counter<=last; counter++)
             {
                 // case 1
                 i = case_1(magic_box_size,i);
@@ -68,9 +68,9 @@
      }//end of function statement()      
 
     function printstatement(){
-        for (var row=0; row<=magic_box_size-1; row++){
+        for (let row=0; row<=magic_box_size-1; row++){
             console.log("\n");
-            for (var col=0; col<=magic_box_size-1; col++)
+            for (let col=0; col<=magic_box_size-1; col++)
             {
                 console.log("value of magic box cell is: ",magicbox[row][col], " where row is: ",row, " and column is: ",col);
             }
@@ -99,33 +99,33 @@
 
     function test_case_1(){
         console.log("------- Running test for case 1 -------");
-        var expected=2; // for 3 by 3 square
-        var magic_box_size_for_test= 3;
-        var row_value = -1;
-        var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
-        var result = case_1(magic_box_size_for_test,row_value);
+        let expected=2; // for 3 by 3 square
+        let magic_box_size_for_test= 3;
+        let row_value = -1;
+        let total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
+        let result = case_1(magic_box_size_for_test,row_value);
         myAssert(expected,result);
     } // end of function test_case_1
 
     function test_case_4(){
         console.log("------- Running test for case 4 -------");
-        var expected=0; // for 3 by 3 square
-        var magic_box_size_for_test= 3;
-        var col_value = 3;
-        var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
-        var result = case_4(magic_box_size_for_test,col_value);
+        let expected=0; // for 3 by 3 square
+        let magic_box_size_for_test= 3;
+        let col_value = 3;
+        let total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
+        let result = case_4(magic_box_size_for_test,col_value);
         myAssert(expected,result);
     } // end of function test_case_4
 
     function test_statement_for_rowsum_3by3(){
-        var expected=45; // if you all all the cell values of a 3 by 3, the number will be 45
-        var magic_box_size_for_test= 3;
-        var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
-        var magicBoxTest = statement(magic_box_size_for_test,total_cells_for_test);
-        var result = 0; 
+        let expected=45; // if you all all the cell values of a 3 by 3, the number will be 45
+        let magic_box_size_for_test= 3;
+        let total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
+        let magicBoxTest = statement(magic_box_size_for_test,total_cells_for_test);
+        let result = 0; 
 
-        for (var row = 0; row <= 2; row++){
-            for (var col = 0; col <= 2; col++){
+        for (let row = 0; row <= 2; row++){
+            for (let col = 0; col <= 2; col++){
                 let temp = 0;
                 temp = parseInt(magicBoxTest[row][col]);
                 result = result + parseInt(temp);
@@ -135,24 +135,24 @@
     } //teststatement_for_rowsum_3by3()
 
     function test_statement_for_3by3(){
-        var expected=8; // since the first cell of a 3 by 3 (row =0,column=0) will have the value 8 if filled correctly
-        var magic_box_size_for_test= 3;
-        var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
-        var magicBoxTest = statement(magic_box_size_for_test,total_cells_for_test);
+        let expected=8; // since the first cell of a 3 by 3 (row =0,column=0) will have the value 8 if filled correctly
+        let magic_box_size_for_test= 3;
+        let total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
+        let magicBoxTest = statement(magic_box_size_for_test,total_cells_for_test);
         myAssert(expected,magicBoxTest[0][0]);
     }
 
     function test_statement_for_5by5(){
-        var expected=[];
+        let expected=[];
         expected [0]  = 17; // row 0, column 1 
         expected [1]  = 24; // row 0, column 2 
         expected [2]  = 1;  // row 0, column 3
         expected [3]  = 8;  // row 0, column 4
         expected [4]  = 15; // row 0, column 5
 
-        var magic_box_size_for_test= 5;
-        var total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
-        var result = statement(magic_box_size_for_test,total_cells_for_test);
+        let magic_box_size_for_test= 5;
+        let total_cells_for_test = magic_box_size_for_test * magic_box_size_for_test;
+        let result = statement(magic_box_size_for_test,total_cells_for_test);
         myAssert(expected[0],result[0][0]);
     }
 
