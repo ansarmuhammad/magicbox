@@ -1,3 +1,5 @@
+// just plain psuedocode
+
 main()
 
 {
