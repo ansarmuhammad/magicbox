@@ -63,7 +63,15 @@ printMagicBox(myMagicBox);
 	} else if (whichRule === 6) {
 	  updateMagicBoxAsPerRule6(magicBox, row, column, count);
 	}
-	return magicBox, row, column, count, true; // value of incomplete
+
+	incomplete = isTheMagicBoxFilled(magicBox);
+
+	function isTheMagicBoxFilled(magicBox) {
+		return true;
+	}
+
+	
+	return magicBox, row, column, count, incomplete; // value of incomplete
   }
   
 
