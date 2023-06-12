@@ -4,6 +4,7 @@
 console.log("reached so far...");
 
 let myMagicBox = generateMagicBox(3, 3);
+
 printMagicBox(myMagicBox);
 //testMagicBox(myMagicBox);
 

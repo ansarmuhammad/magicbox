@@ -24,14 +24,11 @@ function generateMagicBox(rows, columns) {
 	  }
 	}
   
-	while (incomplete === false) {
-		console.log(" in the while loop, count is: ", count);
-	  count++;
-	  magicBox, row, column, count, incomplete = fillEachCell(magicBox, row, column, count, incomplete);
-	  // loop will stop when incomplete gets 'true' value
-	}
-  
 	console.log("reached the end of generate magic box");
+
+	printMagicBox(magicBox);
+	magicBox = updateMagicBoxAsPerRule1(magicBox, row, column, count);
+	printMagicBox(magicBox);
 	return magicBox;
 }
 
@@ -52,41 +49,20 @@ function printMagicBox(magicBox) {
   
 function updateMagicBoxAsPerRule1(magicBox, row, column, count) {
 	console.log(" reached updateMagicBoxAsPerRule1 ");
+	
+	magicBox [0,0] = 0;
 	magicBox[0,1] = 1;
+	magicBox[0,2] = 0;
+	
+	magicBox [1,0] = 0;
+	magicBox[1,1] = 0;
+	magicBox[1,2] = 0;
+	
+	magicBox [2,0] = 0;
+	magicBox[2,1] = 0;
+	magicBox[2,2] = 0;
+	
 	console.log(" ******************************updated magicBox: 0,1 ", magicBox[0,1]);
 	printMagicBox(magicBox);
 	return magicBox;
 }
-
-
-  function fillEachCell(magicBox, row, column, count, incomplete) {
-	//let newCellRowPosition = calculateNextRowCellPosition(magicBox, row, column, count);
-	//let newCellColumnPosition = calculateNextColumnCellPosition(magicBox, row, column, count);
-	//let whichRule = calculateRule(magicBox, row, column, count);
-    
-	let whichRule=1; // just to avoid processing below code for now
-	if (whichRule === 1) {
-	  updateMagicBoxAsPerRule1(magicBox, row, column, count);
-	} else if (whichRule === 2) {
-	  updateMagicBoxAsPerRule2(magicBox, row, column, count);
-	} else if (whichRule === 3) {
-	  updateMagicBoxAsPerRule3(magicBox, row, column, count);
-	} else if (whichRule === 4) {
-	  updateMagicBoxAsPerRule4(magicBox, row, column, count);
-	} else if (whichRule === 5) {
-	  updateMagicBoxAsPerRule5(magicBox, row, column, count);
-	} else if (whichRule === 6) {
-	  updateMagicBoxAsPerRule6(magicBox, row, column, count);
-	}
-
-	incomplete = isTheMagicBoxFilled(magicBox);
-
-	function isTheMagicBoxFilled(magicBox) {
-		return true;
-	}
-
-	
-	return magicBox, row, column, count, incomplete; // value of incomplete
-  }
-  
-
